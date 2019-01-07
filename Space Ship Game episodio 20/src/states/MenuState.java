@@ -13,7 +13,6 @@ public class MenuState extends State{
 	private ArrayList<Button> buttons;
 	
 	public MenuState() {
-		
 		buttons = new ArrayList<Button>();
 		
 		buttons.add(new Button(
@@ -21,13 +20,13 @@ public class MenuState extends State{
 				Assets.blueBtn,
 				Constants.WIDTH / 2 - Assets.greyBtn.getWidth()/2,
 				Constants.HEIGHT / 2 - Assets.greyBtn.getHeight(),
+				Constants.PLAY,
 				new Action() {
 					@Override
 					public void doAction() {
 						State.changeState(new GameState());
 					}
-				},
-				Constants.PLAY
+				}
 				));
 		
 		buttons.add(new Button(
@@ -35,27 +34,30 @@ public class MenuState extends State{
 				Assets.blueBtn,
 				Constants.WIDTH / 2 - Assets.greyBtn.getWidth()/2,
 				Constants.HEIGHT / 2 + Assets.greyBtn.getHeight()/2 ,
+				Constants.EXIT,
 				new Action() {
 					@Override
 					public void doAction() {
 						System.exit(0);
 					}
-				},
-				Constants.EXIT
+				}
 				));
 		
 	}
 	
+	
 	@Override
 	public void update() {
-		for(Button b: buttons)
+		for(Button b: buttons) {
 			b.update();
+		}
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		for(Button b: buttons)
+		for(Button b: buttons) {
 			b.draw(g);
+		}
 	}
-	
+
 }

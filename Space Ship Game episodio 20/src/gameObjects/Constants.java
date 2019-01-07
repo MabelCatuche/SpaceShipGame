@@ -40,10 +40,8 @@ public class Constants {
 	
 	public static final int UFO_SCORE = 40;
 	
-	// Menu Text
+	public static final String PLAY = "PLAY";
 	
-	public static String PLAY = "PLAY GAME";
-	
-	public static String EXIT = "EXIT";
+	public static final String EXIT = "EXIT";
 	
 }

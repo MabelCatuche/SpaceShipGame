@@ -228,7 +228,7 @@ public class GameState extends State{
 	
 	private void drawLives(Graphics g){
 		
-		if(lives <= 0) // appear
+		if(lives < 0)
 			return;
 		
 		Vector2D livePosition = new Vector2D(25, 25);
@@ -246,9 +246,8 @@ public class GameState extends State{
 		{
 			int number = Integer.parseInt(livesToString.substring(i, i+1));
 			
-			//if(number <= 0)
-			//	break;
-			
+			if(number <= 0)
+				break;
 			g.drawImage(Assets.numbers[number],
 					(int)pos.getX() + 60, (int)pos.getY() + 5, null);
 			pos.setX(pos.getX() + 20);
@@ -268,11 +267,6 @@ public class GameState extends State{
 		return player;
 	}
 	
-	public void subtractLife() {
-		lives --;
-		if(lives <= 0) {
-			State.changeState(new MenuState());
-		}
-	}
+	public void subtractLife() {lives --;}
 	
 }

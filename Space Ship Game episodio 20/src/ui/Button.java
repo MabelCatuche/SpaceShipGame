@@ -14,8 +14,8 @@ public class Button {
 	
 	private BufferedImage mouseOutImg;
 	private BufferedImage mouseInImg;
+	private boolean mouseIn;
 	private Rectangle boundingBox;
-	private boolean mouseOn;
 	private Action action;
 	private String text;
 	
@@ -23,34 +23,32 @@ public class Button {
 			BufferedImage mouseOutImg,
 			BufferedImage mouseInImg,
 			int x, int y,
-			Action action,
-			String text
+			String text,
+			Action action
 			) {
 		this.mouseInImg = mouseInImg;
 		this.mouseOutImg = mouseOutImg;
-		this.action = action;
 		this.text = text;
 		boundingBox = new Rectangle(x, y, mouseInImg.getWidth(), mouseInImg.getHeight());
-		
+		this.action = action;
 	}
 	
 	public void update() {
 		
 		if(boundingBox.contains(MouseInput.X, MouseInput.Y)) {
-			mouseOn = true;
+			mouseIn = true;
 		}else {
-			mouseOn = false;
+			mouseIn = false;
 		}
 		
-		if(mouseOn && MouseInput.MLB) {
+		if(mouseIn && MouseInput.MLB) {
 			action.doAction();
 		}
-		
 	}
 	
 	public void draw(Graphics g) {
 		
-		if(mouseOn) {
+		if(mouseIn) {
 			g.drawImage(mouseInImg, boundingBox.x, boundingBox.y, null);
 		}else {
 			g.drawImage(mouseOutImg, boundingBox.x, boundingBox.y, null);
@@ -65,6 +63,8 @@ public class Button {
 				true,
 				Color.BLACK,
 				Assets.fontMed);
+		
+		
 	}
 	
 }

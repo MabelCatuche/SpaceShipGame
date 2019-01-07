@@ -17,9 +17,6 @@ import states.State;
 
 public class Window extends JFrame implements Runnable{
 	
-	/**
-	 *  Yami Studios
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private Canvas canvas;
@@ -33,7 +30,6 @@ public class Window extends JFrame implements Runnable{
 	private double TARGETTIME = 1000000000/FPS;
 	private double delta = 0;
 	private int AVERAGEFPS = FPS;
-	
 	
 	private KeyBoard keyBoard;
 	private MouseInput mouseInput;
@@ -107,6 +103,7 @@ public class Window extends JFrame implements Runnable{
 	private void init()
 	{
 		Assets.init();
+		
 		State.changeState(new MenuState());
 	}
 	
